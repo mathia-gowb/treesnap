@@ -9,7 +9,7 @@ import { exportTree } from './exporter.js';
 const program = new Command();
 
 program
-  .name('treegen')
+  .name('treesnap')
   .description('Generate a directory tree and save it to a file.')
   .argument('[directory]', 'directory to scan', '.')
   .option('-o, --output <file>', 'output filename or path')
@@ -23,12 +23,12 @@ program
 
 program.addHelpText('after', `
 Examples:
-  treegen
-  treegen C:\\Projects\\MyApp
-  treegen -o structure.txt
-  treegen --depth 3
-  treegen --exclude node_modules .git
-  treegen --format markdown -o STRUCTURE.md
+  treesnap
+  treesnap C:\\Projects\\MyApp
+  treesnap -o structure.txt
+  treesnap --depth 3
+  treesnap --exclude node_modules .git
+  treesnap --format markdown -o STRUCTURE.md
 `);
 
 program.parse(process.argv);
@@ -73,6 +73,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  process.stderr.write(`treegen: ${error.message}\n`);
+  process.stderr.write(`treesnap: ${error.message}\n`);
   process.exitCode = 1;
 });

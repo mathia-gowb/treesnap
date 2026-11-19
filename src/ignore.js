@@ -17,7 +17,7 @@ export const DEFAULT_EXCLUDES = [
 ];
 
 /**
- * Build an ignore matcher using built-in defaults, .treegenignore, and CLI patterns.
+ * Build an ignore matcher using built-in defaults, .treesnapignore, and CLI patterns.
  */
 export async function createIgnoreMatcher(root, {
   defaultExcludes = true,
@@ -29,7 +29,7 @@ export async function createIgnoreMatcher(root, {
     matcher.add(DEFAULT_EXCLUDES);
   }
 
-  const ignoreFile = path.join(root, '.treegenignore');
+  const ignoreFile = path.join(root, '.treesnapignore');
   try {
     const contents = await fs.readFile(ignoreFile, 'utf8');
     matcher.add(contents);

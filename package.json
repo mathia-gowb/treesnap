@@ -1,34 +1,74 @@
 {
-  "name": "treegen-cli",
+  "name": "treesnap",
   "version": "1.0.0",
   "description": "Generate and export clean directory trees for software projects.",
   "type": "module",
   "bin": {
-    "treegen": "./src/cli.js"
+    "treesnap": "./src/cli.js"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "author": {
+    "name": "Ngelekanyo Mathobo",
+    "email": "ngelekanyomathobo@gmail.com",
+    "url": "https://github.com/mathia-gowb"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathia-gowb/treesnap.git"
+  },
+  "homepage": "https://github.com/mathia-gowb/treesnap#readme",
+  "bugs": {
+    "url": "https://github.com/mathia-gowb/treesnap/issues"
   },
   "files": [
     "src/",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "start": "node ./src/cli.js",
     "test": "node --test",
-    "check": "node --check ./src/cli.js && node --check ./src/scanner.js && node --check ./src/formatter.js && node --check ./src/exporter.js"
+    "check": "node --check ./src/cli.js && node --check ./src/scanner.js && node --check ./src/formatter.js && node --check ./src/exporter.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepublishOnly": "npm run check && npm test"
   },
   "keywords": [
+    "treesnap",
     "directory-tree",
     "folder-tree",
+    "tree",
     "cli",
     "developer-tools",
-    "filesystem"
+    "filesystem",
+    "gitignore",
+    "markdown",
+    "documentation"
   ],
   "license": "MIT",
   "engines": {
     "node": ">=18"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/mathia-gowb"
+  },
   "dependencies": {
     "commander": "^12.1.0",
     "ignore": "^5.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "prettier": "^3.3.0"
   }
 }
